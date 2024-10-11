@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <title>Marketplace - Electrónica</title>
+</head>
+<body>
+    <header>
+        <h1>Bienvenidos al Marketplace de Electrónica</h1>
+        <nav>
+            <a href="index.html">Regresar a la página principal</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Nuestros Productos</h2>
+            <div class="producto">
+                <img src="../imagenes/audifonos.webp" alt="Descripción del producto 1">
+                <h3>Producto 1</h3>
+                <p>Descripción breve del producto 1.</p>
+                <p>Precio: $100</p>
+                <button>Añadir al carrito</button>
+            </div>
+            <div class="producto">
+                <img src="../imagenes/congelador.webp" alt="Descripción del producto 2">
+                <h3>Producto 2</h3>
+                <p>Descripción breve del producto 2.</p>
+                <p>Precio: $150</p>
+                <button>Añadir al carrito</button>
+            </div>
+            <div class="producto">
+                <img src="../imagenes/airecondicionado.webp" alt="Descripción del producto 3">
+                <h3>Producto 3</h3>
+                <p>Descripción breve del producto 3.</p>
+                <p>Precio: $200</p>
+                <button>Añadir al carrito</button>
+            </div>
+            
+        </section>
+
+        <section>
+            <h2>Comentarios de los Clientes</h2>
+            <div class="comentarios">
+                <p><strong>Jose daniel chacon:</strong> ¡Gran calidad y excelente servicio!</p>
+                <p><strong>Pedro perez 12:</strong> Los precios son muy competitivos.</p>
+                
+            </div>
+        </section>
+    </main>
+    <div class="carrito"></div>
+        <h2>Carrito de Compras</h2>
+        <div id="productosCarrito"></div>
+        <p id="total">Total: $0</p>
+        <button id="vaciarCarrito">Vaciar Carrito</button>
+
+    <footer>
+        <p>&copy; 2024 Marketplace</p>
+    </footer>
+    <script src="../javascript/carrito.js"></script>
+</body>
+</html>

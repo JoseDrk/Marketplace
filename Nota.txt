@@ -1,0 +1,30 @@
+1 prototipo
+Página de Inicio:
+
+*Bienvenida al marketplace.
+*Carrusel de imágenes.
+*Sección de categorías destacadas.
+*Sección de ofertas especiales.
+*Página de Categorías:
+
+2 prototipo
+*Muestra diferentes categorías de productos.
+*Enlaces a páginas específicas para cada categoría.
+*Sección de productos destacados.
+*Página de Ofertas:
+
+3 prototipo
+*Listado de productos en oferta.
+*Descripciones breves y precios.
+*Sección de comentarios de clientes.
+*Página de Carrito de Compras:
+
+4 prototipo
+*Visualización de los productos añadidos al carrito.
+*Botones para modificar cantidades y eliminar productos.
+*Total de la compra.
+*Página de Contacto:
+
+5 prototipo
+*Formulario de contacto para consultas.
+*Sección para información adicional (como dirección y teléfonos).
