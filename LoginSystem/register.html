@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>Registro de Usuario</h1>
+    <form id="registerForm">
+        <label for="username">Nombre de usuario:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Contraseña:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <button type="submit">Registrar</button>
+    </form>
+
+    <script>
+        // Capturar el formulario y manejar el envío
+        const form = document.getElementById('registerForm');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Evita que la página se recargue
+
+            // Obtener los valores del formulario
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                // Enviar los datos al servidor
+                const response = await fetch('http://localhost:3000/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const result = await response.text();
+                if (response.ok) {
+                    alert('Usuario registrado: ' + result);
+                } else {
+                    alert('Error: ' + result);
+                }
+            } catch (error) {
+                alert('Hubo un error al conectarse al servidor.');
+                console.error(error);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -5,6 +5,11 @@ const { connectToDB, sql } = require('./database');
 const app = express();
 const port = 3000;
 
+const path = require('path');
+
+// Servir archivos HTML en la carpeta actual
+app.use(express.static(path.join(__dirname)));
+
 // Middleware para parsear JSON
 app.use(bodyParser.json());
 
