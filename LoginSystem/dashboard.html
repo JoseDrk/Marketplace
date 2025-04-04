@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>Bienvenido al Dashboard</h1>
+    <p>Has iniciado sesión correctamente.</p>
+
+    <h2>Editar Perfil</h2>
+    <form id="editForm">
+        <label for="newUsername">Nuevo Nombre de Usuario:</label><br>
+        <input type="text" id="newUsername" name="newUsername" required><br><br>
+
+        <label for="newPassword">Nueva Contraseña:</label><br>
+        <input type="password" id="newPassword" name="newPassword"><br><br>
+
+        <button type="submit">Actualizar</button>
+    </form>
+
+    <button onclick="logout()">Cerrar Sesión</button>
+
+    <script>
+        // Verifica si el usuario tiene sesión activa
+        (async () => {
+            try {
+                const res = await fetch('http://localhost:3000/protected', {
+                    credentials: 'include'
+                });
+                if (!res.ok) {
+                    alert('No autorizado. Redirigiendo al login...');
+                    window.location.href = "login.html";
+                }
+            } catch (error) {
+                alert('Error de conexión con el servidor.');
+                console.error(error);
+            }
+        })();
+
+        // Actualizar usuario
+        document.getElementById('editForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const newUsername = document.getElementById('newUsername').value;
+            const newPassword = document.getElementById('newPassword').value;
+
+            try {
+                const response = await fetch('http://localhost:3000/update', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({ newUsername, newPassword })
+                });
+
+                const result = await response.text();
+                if (response.ok) {
+                    alert('Usuario actualizado correctamente');
+                    window.location.reload();
+                } else {
+                    alert('Error: ' + result);
+                }
+            } catch (error) {
+                alert('Hubo un error al conectarse al servidor.');
+                console.error(error);
+            }
+        });
+
+        // Cerrar sesión correctamente
+        async function logout() {
+            try {
+                const res = await fetch('http://localhost:3000/logout', {
+                    credentials: 'include'
+                });
+                if (res.ok) {
+                    alert('Sesión cerrada');
+                    window.location.href = "login.html";
+                } else {
+                    alert('Error al cerrar sesión');
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Error al cerrar sesión');
+            }
+        }
+    </script>
+</body>
+</html>

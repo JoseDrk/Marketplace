@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Usuarios</title>
+</head>
+<body>
+    <h1>CRUD Usuarios</h1>
+
+    <h2>Crear Usuario</h2>
+    <form id="createUserForm">
+        <label for="username">Nombre de usuario:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <button type="submit">Crear</button>
+    </form>
+
+    <h2>Actualizar Usuario</h2>
+    <form id="updateUserForm">
+        <label for="userId">ID del usuario a actualizar:</label>
+        <input type="number" id="userId" name="userId" required><br><br>
+
+        <label for="newUsername">Nuevo nombre de usuario:</label>
+        <input type="text" id="newUsername" name="newUsername" required><br><br>
+
+        <label for="newPassword">Nueva contraseña:</label>
+        <input type="password" id="newPassword" name="newPassword" required><br><br>
+
+        <button type="submit">Actualizar</button>
+    </form>
+
+    <h2>Eliminar Usuario</h2>
+    <form id="deleteUserForm">
+        <label for="deleteUserId">ID del usuario a eliminar:</label>
+        <input type="number" id="deleteUserId" name="deleteUserId" required><br><br>
+
+        <button type="submit">Eliminar</button>
+    </form>
+
+    <h2>Lista de Usuarios</h2>
+    <ul id="userList"></ul>
+
+    <script src="crud.js"></script>
+</body>
+</html>

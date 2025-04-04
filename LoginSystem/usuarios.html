@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuarios</title>
+</head>
+<body>
+    <h2>Usuarios Registrados</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+            </tr>
+        </thead>
+        <tbody id="userTable">
+            <!-- Aquí se insertarán los usuarios dinámicamente -->
+        </tbody>
+    </table>
+
+    <script>
+        async function loadUsers() {
+            try {
+                const response = await fetch('http://localhost:3000/users'); // Reemplaza con tu puerto real
+                const users = await response.json();
+
+                const tableBody = document.getElementById('userTable');
+                tableBody.innerHTML = ''; // Limpiar tabla antes de insertar
+
+                users.forEach(user => {
+                    const row = `<tr>
+                        <td>${user.Id}</td>
+                        <td>${user.Username}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            } catch (error) {
+                console.error('Error al cargar usuarios:', error);
+            }
+        }
+
+        // Llamar a la función al cargar la página
+        window.onload = loadUsers;
+    </script>
+</body>
+</html>
